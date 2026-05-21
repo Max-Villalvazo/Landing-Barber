@@ -1,389 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barber Shop — Premium Grooming Experience</title>
-  <meta name="description" content="Premium barber shop offering haircuts, beard styling and more. Serving since 2000 with expert care and attention.">
+  <meta name="description"
+    content="Premium barber shop offering haircuts, beard styling and more. Serving since 2000 with expert care and attention.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --accent: #00c8ff;
-    --accent-light: #66dfff;
-    --accent-dark: #009fd4;
-    --bg: #080808;
-    --bg2: #111111;
-    --bg3: #1a1a1a;
-    --text: #f5f0e8;
-    --text2: #888888;
-    --text3: #444444;
-    --border: rgba(0,200,255,0.18);
-    --shadow: 0 20px 60px rgba(0,0,0,.85);
-    --radius: 16px;
-    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  [data-theme="light"] {
-    --bg: #faf9f7;
-    --bg2: #f0ede8;
-    --bg3: #e8e2d9;
-    --text: #1a1410;
-    --text2: #5c4e3a;
-    --text3: #a0906e;
-    --border: rgba(0,200,255,.3);
-    --shadow: 0 20px 60px rgba(0,0,0,.12);
-  }
-  [data-theme="light"] #header.scrolled { background: rgba(250,249,247,.96); }
-  [data-theme="light"] .nav-logo-img { filter: brightness(0); }
-  [data-theme="light"] .item-menu { color: #5c4e3a; }
-  [data-theme="light"] .line { background: #1a1410; }
-  [data-theme="light"] #mobile-menu { background: rgba(250,249,247,.98); }
-  [data-theme="light"] #mobile-menu a { color: #1a1410; }
-  [data-theme="light"] #services { background: none; }
-  [data-theme="light"] .service-card { background: rgba(0,0,0,.04); }
-  [data-theme="light"] #footer { background: #0d0d0d; border-top-color: rgba(0,200,255,0.2); }
-  [data-theme="light"] #footer .footer-brand .barberShopTitle { color: var(--accent); }
-  [data-theme="light"] #footer #contact label { color: #888; }
+    :root {
+      --accent: #00c8ff;
+      --accent-light: #66dfff;
+      --accent-dark: #009fd4;
+      --bg: #080808;
+      --bg2: #111111;
+      --bg3: #1a1a1a;
+      --text: #f5f0e8;
+      --text2: #888888;
+      --text3: #444444;
+      --border: rgba(0, 200, 255, 0.18);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .85);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  .theme-toggle {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1px solid var(--border); background: var(--bg2);
-    cursor: pointer; font-size: 1rem; display: flex; align-items: center;
-    justify-content: center; transition: var(--transition); flex-shrink: 0;
-  }
-  .theme-toggle:hover { border-color: var(--accent); background: rgba(0,200,255,.1); }
+    [data-theme="light"] {
+      --bg: #faf9f7;
+      --bg2: #f0ede8;
+      --bg3: #e8e2d9;
+      --text: #1a1410;
+      --text2: #5c4e3a;
+      --text3: #a0906e;
+      --border: rgba(0, 200, 255, .3);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .12);
+    }
 
-  .lang-toggle {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1px solid var(--border); background: var(--bg2);
-    cursor: pointer; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center;
-    justify-content: center; transition: var(--transition); flex-shrink: 0;
-    color: var(--text);
-  }
-  .lang-toggle:hover { border-color: var(--accent); background: rgba(0,200,255,.1); }
+    [data-theme="light"] #header.scrolled {
+      background: rgba(250, 249, 247, .96);
+    }
 
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    [data-theme="light"] .nav-logo-img {
+      filter: brightness(0);
+    }
 
-  /* Navbar */
-  #header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    height: 70px; padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: var(--transition);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid transparent;
-  }
-  #header.scrolled { background: rgba(8,8,8,.95); border-bottom-color: var(--border); box-shadow: 0 4px 30px rgba(0,0,0,.6); }
-  .nav-logo-img { height: 44px; object-fit: contain; }
-  #menu { display: flex; gap: 2.5rem; list-style: none; }
-  .item-menu { color: var(--text2); text-decoration: none; font-size: .875rem; font-weight: 500; transition: color .2s; position: relative; }
-  .item-menu::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform .25s; }
-  .item-menu:hover, .item-menu.active { color: var(--accent); }
-  .item-menu:hover::after { transform: scaleX(1); }
-  .BtnContacUs {
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    color: #080808; font-weight: 700; font-size: .875rem;
-    padding: .6rem 1.5rem; border-radius: 10px; border: none;
-    cursor: pointer; text-decoration: none; transition: var(--transition);
-    box-shadow: 0 0 20px rgba(0,200,255,.3);
-  }
-  .BtnContacUs:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0,200,255,.5); }
-  .hamburger-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
-  .line { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
-  #mobile-menu {
-    display: none; position: fixed; inset: 0; background: rgba(8,8,8,.97); z-index: 99;
-    flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
-  }
-  #mobile-menu.open { display: flex; }
-  #mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.6rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; }
-  #mobile-menu a:hover { color: var(--accent); }
-  .close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--text); font-size: 2rem; cursor: pointer; }
+    [data-theme="light"] .item-menu {
+      color: #5c4e3a;
+    }
 
-  /* Hero */
-  #home {
-    min-height: 100vh; position: relative;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-    background-image: url(./images/marmolNegro.jpg);
-    background-size: cover; background-position: center; background-attachment: fixed;
-  }
-  .layer {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(8,8,8,.55) 0%, rgba(8,8,8,.4) 50%, rgba(8,8,8,.7) 100%);
-  }
-  .hero-content {
-    position: relative; z-index: 2; text-align: center;
-    padding: 0 1rem; max-width: 700px;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: .5rem;
-    background: rgba(0,200,255,.1); border: 1px solid rgba(0,200,255,.3);
-    color: var(--accent); font-size: .8rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: .12em; padding: .45rem 1.1rem; border-radius: 100px; margin-bottom: 1.5rem;
-  }
-  .barberShopTitle {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(3rem, 8vw, 6rem); font-weight: 900;
-    letter-spacing: -0.04em; line-height: 1;
-    text-shadow: 0 4px 40px rgba(0,0,0,.8);
-    margin-bottom: 1rem;
-    color: #f5f0e8;
-  }
-  .hero-sub { color: rgba(245,240,232,.7); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7; }
-  .grad { background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .5rem; color: rgba(245,240,232,.5); font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
-  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scroll-anim 2s ease-in-out infinite; }
-  @keyframes scroll-anim { 0%{opacity:0;transform:scaleY(0);transform-origin:top} 50%{opacity:1;transform:scaleY(1)} 100%{opacity:0;transform:scaleY(1);transform-origin:bottom} }
+    [data-theme="light"] .line {
+      background: #1a1410;
+    }
 
-  /* Buttons */
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    color: #080808; font-weight: 700; padding: .9rem 2.2rem;
-    border-radius: var(--radius); border: none; cursor: pointer;
-    font-size: 1rem; text-decoration: none; transition: var(--transition);
-    box-shadow: 0 0 30px rgba(0,200,255,.4); display: inline-block;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(0,200,255,.6); }
-  .btn-outline {
-    background: transparent; color: var(--text); font-weight: 600;
-    padding: .9rem 2.2rem; border-radius: var(--radius);
-    border: 1px solid var(--border); cursor: pointer; font-size: 1rem;
-    text-decoration: none; transition: var(--transition); display: inline-block;
-  }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    [data-theme="light"] #mobile-menu {
+      background: rgba(250, 249, 247, .98);
+    }
 
-  /* Sections */
-  section { padding: 6rem 2rem; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow {
-    display: inline-flex; align-items: center; gap: .5rem; color: var(--accent);
-    font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1rem;
-  }
-  .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
-  h2.subTitle {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.15;
-    letter-spacing: -0.02em; margin-bottom: 1rem;
-  }
-  .section-sub { color: var(--text2); font-size: 1.05rem; line-height: 1.7; max-width: 560px; }
+    [data-theme="light"] #mobile-menu a {
+      color: #1a1410;
+    }
 
-  /* Welcome */
-  #welcome { background: var(--bg2); }
-  .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  #welcome-image { width: 100%; height: 460px; object-fit: contain; }
-  .welcome-text p { color: var(--text2); line-height: 1.85; margin-bottom: 1rem; }
-  .quote-block {
-    margin-top: 1.5rem; padding: 1.25rem 1.5rem;
-    border-left: 3px solid var(--accent); background: rgba(0,200,255,.05);
-    border-radius: 0 var(--radius) var(--radius) 0;
-  }
-  .quote-block p { color: var(--text2); font-style: italic; line-height: 1.7; }
-  .quote-block cite { display: block; margin-top: .5rem; color: var(--accent); font-size: .85rem; font-weight: 600; }
+    [data-theme="light"] #services {
+      background: none;
+    }
 
-  /* Services */
-  #services {
-    background-image: url(./images/marmolNegro.jpg);
-    background-size: cover; background-position: center; background-attachment: fixed;
-    position: relative;
-  }
-  #services .layer { position: absolute; inset: 0; background: rgba(8,8,8,.82); }
-  #services .section-inner { position: relative; z-index: 2; }
-  #services .section-eyebrow { color: var(--accent); }
-  #services .subTitle { color: #f5f0e8; }
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .service-card {
-    background: rgba(255,255,255,.04) !important; backdrop-filter: blur(12px);
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 2rem; transition: var(--transition);
-  }
-  .service-card:hover { border-color: rgba(0,200,255,.45); transform: translateY(-6px); background: rgba(0,200,255,.06) !important; }
-  h3.subTitle2 {
-    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800;
-    color: var(--accent); margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: .06em;
-  }
-  .service-card ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
-  .service-card li { display: flex; justify-content: space-between; color: rgba(245,240,232,.7); font-size: .95rem; padding-bottom: .65rem; border-bottom: 1px solid rgba(255,255,255,.06); }
-  .service-card li:last-child { border-bottom: none; padding-bottom: 0; }
-  .service-card li label { color: #f5f0e8; font-weight: 500; cursor: default; }
-  .service-card li span { color: var(--accent); font-weight: 700; }
-  .other-services li { color: rgba(245,240,232,.7); position: relative; padding-left: 1rem; justify-content: flex-start; }
-  .other-services li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+    [data-theme="light"] .service-card {
+      background: rgba(0, 0, 0, .04);
+    }
 
-  /* Feedback */
-  #feedback { background: var(--bg); }
-  .feedback-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .item-feedback {
-    background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 2rem; transition: var(--transition);
-  }
-  .item-feedback:hover { border-color: rgba(0,200,255,.4); transform: translateY(-4px); }
-  .feedback-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .item-feedback p { color: var(--text2); font-size: 1rem; line-height: 1.75; font-style: italic; }
-  .item-feedback footer { margin-top: 1rem; }
-  .item-feedback footer p { color: var(--accent); font-weight: 700; font-style: normal; font-size: .9rem; }
-  .stars { color: var(--accent); font-size: .85rem; margin-bottom: .5rem; }
+    [data-theme="light"] #footer {
+      background: #0d0d0d;
+      border-top-color: rgba(0, 200, 255, 0.2);
+    }
 
-  /* Find Us */
-  #findUs { background: var(--bg2); }
-  .findus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  #map img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
-  #openingHours { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
-  #openingHours h3.subTitle { margin-bottom: 1.5rem; }
-  .item-schedule {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: .85rem 0; border-bottom: 1px solid var(--border); font-size: .95rem;
-  }
-  .item-schedule:last-child { border-bottom: none; }
-  .item-schedule label { color: var(--text); font-weight: 600; }
-  .item-schedule p { color: var(--text2); }
+    [data-theme="light"] #footer .footer-brand .barberShopTitle {
+      color: var(--accent);
+    }
 
-  /* Footer */
-  /* Appointment Button */
-.appointment-wrapper {
-  text-align: center;
-  margin-top: 2rem;
-}
+    [data-theme="light"] #footer #contact label {
+      color: #888;
+    }
 
-.appointment-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.85rem 2rem;
-  border-radius: 12px;
-  background: #111;
-  border: 1px solid rgba(0,200,255,0.25);
-  color: #00c8ff;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: 0.03em;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-}
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
 
-.appointment-button i {
-  font-size: 1.2rem;
-  color: #25d366;
-}
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 200, 255, .1);
+    }
 
-.appointment-button:hover {
-  border-color: #00c8ff;
-  background: rgba(0,200,255,0.08);
-  transform: translateY(-2px);
-}
-  #footer {
-    background: #0a0a0a;
-    border-top: 1px solid rgba(0,200,255,0.12);
-    padding: 3.5rem 2rem 0;
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-  }
-  #footer .footer-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  #footer .footer-brand {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  #footer .footer-brand .logo {
-    width: 90px;
-    height: auto;
-    opacity: 0.85;
-    margin-bottom: 0.75rem;
-  }
-  #footer .footer-brand .barberShopTitle {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    color: var(--accent);
-    margin-bottom: 0.25rem;
-  }
-  #footer .footer-brand p {
-    font-size: 0.78rem;
-    color: var(--text3);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-  #footer .footer-divider {
-    width: 40px;
-    height: 2px;
-    background: var(--accent);
-    opacity: 0.5;
-    margin: 1.25rem auto 0;
-  }
-  #footer #contact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-  }
-  #footer #contact .btn-social {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 0.6rem 1.25rem;
-    border-radius: 10px;
-    border: 1px solid var(--bg3);
-    background: var(--bg2);
-    color: var(--text2);
-    transition: var(--transition);
-  }
-  #footer #contact .btn-social:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,200,255,.06); }
-  #footer #contact .btn-social.whatsapp:hover { border-color: #25d366; color: #25d366; background: rgba(37,211,102,.06); }
-  #footer #contact .btn-social.instagram:hover { border-color: #e1306c; color: #e1306c; background: rgba(225,48,108,.06); }
-  #footer #contact .btn-social.facebook:hover { border-color: #1877f2; color: #1877f2; background: rgba(24,119,242,.06); }
-  #footer #contact label {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    width: 100%;
-    justify-content: center;
-    font-size: 0.82rem;
-    color: var(--text3);
-    margin-top: 0.5rem;
-  }
-  #footer #contact label i { font-size: 0.85rem; color: var(--accent); opacity: 0.7; }
-  #footer > footer {
-    border-top: 1px solid var(--bg3);
-    padding: 1.25rem 0;
-    margin-top: 0;
-    text-align: center;
-  }
-  #footer > footer label { display: block; width: 100%; font-size: 0.75rem; color: var(--text3); }
-  #footer > footer a { color: var(--accent); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
-  #footer > footer a:hover { opacity: 1; }
+    .lang-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+      color: var(--text);
+    }
 
-  #layer-menu { position: fixed; inset: 0; background: rgba(8,8,8,.5); display: none; z-index: 90; }
+    .lang-toggle:hover {
+      border-color: var(--accent);
+      background: rgba(0, 200, 255, .1);
+    }
 
-  @media (max-width: 768px) {
-    #menu, .BtnContacUs { display: none; }
-    .hamburger-btn { display: flex; }
-    .welcome-grid, .services-grid, .feedback-grid, .findus-grid { grid-template-columns: 1fr; }
-    #home { background-attachment: scroll; }
-    #services { background-attachment: scroll; }
-    #footer #contact .btn-social { width: 100%; justify-content: center; }
-  }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
- </style>
+    /* Navbar */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 70px;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+    }
+
+    #header.scrolled {
+      background: rgba(8, 8, 8, .95);
+      border-bottom-color: var(--border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, .6);
+    }
+
+    .nav-logo-img {
+      height: 44px;
+      object-fit: contain;
+    }
+
+    #menu {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .item-menu {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: color .2s;
+      position: relative;
+    }
+
+    .item-menu::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform .25s;
+    }
+
+    .item-menu:hover,
+    .item-menu.active {
+      color: var(--accent);
+    }
+
+    .item-menu:hover::after {
+      transform: scaleX(1);
+    }
+
+    .BtnContacUs {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #080808;
+      font-weight: 700;
+      font-size: .875rem;
+      padding: .6rem 1.5rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 0 20px rgba(0, 200, 255, .3);
+    }
+
+    .BtnContacUs:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(0, 200, 255, .5);
+    }
+
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .line {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, .97);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    #mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    #mobile-menu a:hover {
+      color: var(--accent);
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    #home {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-image: url(./images/marmolNegro.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .layer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8, 8, 8, .55) 0%, rgba(8, 8, 8, .4) 50%, rgba(8, 8, 8, .7) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(0, 200, 255, .1);
+      border: 1px solid rgba(0, 200, 255, .3);
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: .45rem 1.1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .barberShopTitle {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-shadow: 0 4px 40px rgba(0, 0, 0, .8);
+      margin-bottom: 1rem;
+      color: #f5f0e8;
+    }
+
+    .hero-sub {
+      color: rgba(245, 240, 232, .7);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .grad {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      color: rgba(245, 240, 232, .5);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scroll-anim 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-anim {
+      0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1)
+      }
+
+      100% {
+        opacity: 0;
+        transform: scaleY(1);
+        transform-origin: bottom
+      }
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #080808;
+      font-weight: 700;
+      padding: .9rem 2.2rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 0 30px rgba(0, 200, 255, .4);
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(0, 200, 255, .6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      padding: .9rem 2.2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 1rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h2.subTitle {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--text2);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* Welcome */
+    #welcome {
+      background: var(--bg2);
+    }
+
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    #welcome-image {
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+    }
+
+    .welcome-text p {
+      color: var(--text2);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .quote-block {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(0, 200, 255, .05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .quote-block p {
+      color: var(--text2);
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .quote-block cite {
+      display: block;
+      margin-top: .5rem;
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    /* Services */
+    #services {
+      background-image: url(./images/marmolNegro.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    #services .layer {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 8, .82);
+    }
+
+    #services .section-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    #services .section-eyebrow {
+      color: var(--accent);
+    }
+
+    #services .subTitle {
+      color: #f5f0e8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, .04) !important;
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: rgba(0, 200, 255, .45);
+      transform: translateY(-6px);
+      background: rgba(0, 200, 255, .06) !important;
+    }
+
+    h3.subTitle2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .service-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+    }
+
+    .service-card li {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(245, 240, 232, .7);
+      font-size: .95rem;
+      padding-bottom: .65rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .service-card li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .service-card li label {
+      color: #f5f0e8;
+      font-weight: 500;
+      cursor: default;
+    }
+
+    .service-card li span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .other-services li {
+      color: rgba(245, 240, 232, .7);
+      position: relative;
+      padding-left: 1rem;
+      justify-content: flex-start;
+    }
+
+    .other-services li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Feedback */
+    #feedback {
+      background: var(--bg);
+    }
+
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .item-feedback {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+
+    .item-feedback:hover {
+      border-color: rgba(0, 200, 255, .4);
+      transform: translateY(-4px);
+    }
+
+    .feedback-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .item-feedback p {
+      color: var(--text2);
+      font-size: 1rem;
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .item-feedback footer {
+      margin-top: 1rem;
+    }
+
+    .item-feedback footer p {
+      color: var(--accent);
+      font-weight: 700;
+      font-style: normal;
+      font-size: .9rem;
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: .85rem;
+      margin-bottom: .5rem;
+    }
+
+    /* Find Us */
+    #findUs {
+      background: var(--bg2);
+    }
+
+    .findus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    #map img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    #openingHours {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    #openingHours h3.subTitle {
+      margin-bottom: 1.5rem;
+    }
+
+    .item-schedule {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .85rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .95rem;
+    }
+
+    .item-schedule:last-child {
+      border-bottom: none;
+    }
+
+    .item-schedule label {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .item-schedule p {
+      color: var(--text2);
+    }
+
+    /* Footer */
+    /* Appointment Button */
+    .appointment-wrapper {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .appointment-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      background: #111;
+      border: 1px solid rgba(0, 200, 255, 0.25);
+      color: #00c8ff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .appointment-button i {
+      font-size: 1.2rem;
+      color: #25d366;
+    }
+
+    .appointment-button:hover {
+      border-color: #00c8ff;
+      background: rgba(0, 200, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    #footer {
+      background: #0a0a0a;
+      border-top: 1px solid rgba(0, 200, 255, 0.12);
+      padding: 3.5rem 2rem 0;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    #footer .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #footer .footer-brand {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #footer .footer-brand .logo {
+      width: 90px;
+      height: auto;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    #footer .footer-brand .barberShopTitle {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    #footer .footer-brand p {
+      font-size: 0.78rem;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    #footer .footer-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.5;
+      margin: 1.25rem auto 0;
+    }
+
+    #footer #contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    #footer #contact .btn-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--bg3);
+      background: var(--bg2);
+      color: var(--text2);
+      transition: var(--transition);
+    }
+
+    #footer #contact .btn-social:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0, 200, 255, .06);
+    }
+
+    #footer #contact .btn-social.whatsapp:hover {
+      border-color: #25d366;
+      color: #25d366;
+      background: rgba(37, 211, 102, .06);
+    }
+
+    #footer #contact .btn-social.instagram:hover {
+      border-color: #e1306c;
+      color: #e1306c;
+      background: rgba(225, 48, 108, .06);
+    }
+
+    #footer #contact .btn-social.facebook:hover {
+      border-color: #1877f2;
+      color: #1877f2;
+      background: rgba(24, 119, 242, .06);
+    }
+
+    #footer #contact label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: 100%;
+      justify-content: center;
+      font-size: 0.82rem;
+      color: var(--text3);
+      margin-top: 0.5rem;
+    }
+
+    #footer #contact label i {
+      font-size: 0.85rem;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    #footer>footer {
+      border-top: 1px solid var(--bg3);
+      padding: 1.25rem 0;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    #footer>footer label {
+      display: block;
+      width: 100%;
+      font-size: 0.75rem;
+      color: var(--text3);
+    }
+
+    #footer>footer a {
+      color: var(--accent);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    #footer>footer a:hover {
+      opacity: 1;
+    }
+
+    #layer-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, .5);
+      display: none;
+      z-index: 90;
+    }
+
+    @media (max-width: 768px) {
+
+      #menu,
+      .BtnContacUs {
+        display: none;
+      }
+
+      .hamburger-btn {
+        display: flex;
+      }
+
+      .welcome-grid,
+      .services-grid,
+      .feedback-grid,
+      .findus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #home {
+        background-attachment: scroll;
+      }
+
+      #services {
+        background-attachment: scroll;
+      }
+
+      #footer #contact .btn-social {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <header id="header">
@@ -418,9 +997,12 @@
     <div class="layer"></div>
     <div class="hero-content">
       <div class="hero-eyebrow" data-i18n="hero.eyebrow">Serving since 2022</div>
-      <h1 class="barberShopTitle" data-i18n="hero.title" data-i18n-html="true">Barber <span class="grad">Shop</span></h1>
-      <p class="hero-sub" data-i18n="hero.sub">Welcome to a space where precision, style, and personalized attention combine to help you look and feel your best.</p>
-      <a href="#findUs" class="BtnContacUs" style="font-size:1rem;padding:.9rem 2.2rem;border-radius:14px;" data-i18n="hero.contact_us">Contact US</a>
+      <h1 class="barberShopTitle" data-i18n="hero.title" data-i18n-html="true">Barber <span class="grad">Shop</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">Welcome to a space where precision, style, and personalized attention
+        combine to help you look and feel your best.</p>
+      <a href="#findUs" class="BtnContacUs" style="font-size:1rem;padding:.9rem 2.2rem;border-radius:14px;"
+        data-i18n="hero.contact_us">Contact US</a>
     </div>
     <div class="scroll-hint">
       <span data-i18n="hero.scroll">Scroll</span>
@@ -433,18 +1015,22 @@
     <div class="section-inner">
       <div class="welcome-grid">
         <div>
-            <img src="./images/ub_withe.png" alt="Scissors" id="welcome-image">
+          <img src="./images/ub_withe.png" alt="Scissors" id="welcome-image">
         </div>
         <div class="welcome-text">
           <span class="section-eyebrow" data-i18n="welcome.eyebrow">Our Story</span>
-          <h2 class="subTitle" data-i18n="welcome.title" data-i18n-html="true">Welcome to <span class="grad">Barber Shop</span></h2>
+          <h2 class="subTitle" data-i18n="welcome.title" data-i18n-html="true">Welcome to <span class="grad">Urban
+              Barber</span></h2>
           <p data-i18n="welcome.p" data-i18n-html="true">We don't believe in generic haircuts.
-Each person has a unique essence, and our job is to help you project it authentically.
+            Each person has a unique essence, and our job is to help you project it authentically.
 
-We're a barbershop focused on details, facial structure, and personal image. We strive to ensure each client leaves with a style that truly connects with their personality, their face, and their lifestyle.
-Here, the service is direct, professional, and natural. No exaggeration. Just good work, good vibes, and noticeable results.</p>
+            We're a barbershop focused on details, facial structure, and personal image. We strive to ensure each client
+            leaves with a style that truly connects with their personality, their face, and their lifestyle.
+            Here, the service is direct, professional, and natural. No exaggeration. Just good work, good vibes, and
+            noticeable results.</p>
           <div class="quote-block">
-            <p data-i18n="welcome.quote">“You didn’t come into this world to be just another face in the crowd, but to express something unique.”</p>
+            <p data-i18n="welcome.quote">“You didn’t come into this world to be just another face in the crowd, but to
+              express something unique.”</p>
             <cite data-i18n="welcome.quote_cite">-Paramahansa Yogananda</cite>
           </div>
           <a href="#services" class="btn-primary" style="margin-top:2rem;" data-i18n="welcome.btn">View Services →</a>
@@ -496,25 +1082,32 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
       <div style="text-align:center;margin-bottom:1rem;">
         <span class="section-eyebrow" data-i18n="feedback.eyebrow">Testimonials</span>
       </div>
-      <h2 class="subTitle" style="text-align:center;" data-i18n="feedback.title" data-i18n-html="true">What they said about <span class="grad">us</span></h2>
+      <h2 class="subTitle" style="text-align:center;" data-i18n="feedback.title" data-i18n-html="true">What they said
+        about <span class="grad">us</span></h2>
       <div class="feedback-grid">
         <div class="item-feedback">
           <div class="stars">★★★★★</div>
           <div class="feedback-icon">✂</div>
           <p data-i18n="feedback.review_1">"Good attention"</p>
-          <footer><p>— Saúl Ruiz</p></footer>
+          <footer>
+            <p>— Saúl Ruiz</p>
+          </footer>
         </div>
         <div class="item-feedback">
           <div class="stars">★★★★★</div>
           <div class="feedback-icon">✂</div>
           <p data-i18n="feedback.review_2">"I really liked the personalization of the services"</p>
-          <footer><p>— Braulio Urzua</p></footer>
+          <footer>
+            <p>— Braulio Urzua</p>
+          </footer>
         </div>
         <div class="item-feedback">
           <div class="stars">★★★★★</div>
           <div class="feedback-icon">✂</div>
           <p data-i18n="feedback.review_3">"I loved the follow-up she gives with each cut."</p>
-          <footer><p>— Angel Corona</p></footer>
+          <footer>
+            <p>— Angel Corona</p>
+          </footer>
         </div>
       </div>
     </div>
@@ -527,71 +1120,87 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
         <div id="map">
           <span class="section-eyebrow" data-i18n="findus.eyebrow">Location</span>
           <h2 class="subTitle" data-i18n="findus.title" data-i18n-html="true">Find us <span class="grad">in</span></h2>
-          <iframe   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1854.557206119906!2d-103.74349969445218!3d19.2897024274851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842545c8523ec3c9%3A0x8f787692e88e5bc0!2sUrban%20barber!5e0!3m2!1ses!2sus!4v1779157142167!5m2!1ses!2sus"
-          width="600" height="450" style="border:0;" allowfullscreen="
-          "loading="lazy" referrerpolicy="no-referrer-when-downgrade""></iframe> 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1854.557206119906!2d-103.74349969445218!3d19.2897024274851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842545c8523ec3c9%3A0x8f787692e88e5bc0!2sUrban%20barber!5e0!3m2!1ses!2sus!4v1779157142167!5m2!1ses!2sus"
+            width="600" height="450" style="border:0;" allowfullscreen="
+          " loading="lazy" referrerpolicy="no-referrer-when-downgrade""></iframe> 
           
         </div>
-        <div id="openingHours">
-          <h3 class="subTitle" data-i18n="findus.hours_title" data-i18n-html="true">Opening <span class="grad">Hours</span></h3>
-          <div class="item-schedule"><label data-i18n="findus.day_monday">Monday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label data-i18n="findus.day_tuesday">Tuesday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label data-i18n="findus.day_wednesday">Wednesday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label data-i18n="findus.day_thursday">Thursday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label data-i18n="findus.day_friday">Friday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label data-i18n="findus.day_saturday">Saturday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <br>
-          <div class="appointment-wrapper">
-            <a href="https://wa.me/523124346300" target="_blank" class="appointment-button">
-              <i class="fab fa-whatsapp"></i>
-              <span data-i18n="findus.appointment">Book an appointment</span>
-            </a>  
-          </div>
+        <div id=" openingHours">
+            <h3 class="subTitle" data-i18n="findus.hours_title" data-i18n-html="true">Opening <span
+                class="grad">Hours</span></h3>
+            <div class="item-schedule"><label data-i18n="findus.day_monday">Monday</label>
+              <p>3:00 p.m – 9:00 p.m</p>
+            </div>
+            <div class="item-schedule"><label data-i18n="findus.day_tuesday">Tuesday</label>
+              <p>3:00 p.m – 9:00 p.m</p>
+            </div>
+            <div class="item-schedule"><label data-i18n="findus.day_wednesday">Wednesday</label>
+              <p>3:00 p.m – 9:00 p.m</p>
+            </div>
+            <div class="item-schedule"><label data-i18n="findus.day_thursday">Thursday</label>
+              <p>3:00 p.m – 9:00 p.m</p>
+            </div>
+            <div class="item-schedule"><label data-i18n="findus.day_friday">Friday</label>
+              <p>3:00 p.m – 9:00 p.m</p>
+            </div>
+            <div class="item-schedule"><label data-i18n="findus.day_saturday">Saturday</label>
+              <p>3:00 p.m – 9:00 p.m</p>
+            </div>
+            <br>
+            <div class="appointment-wrapper">
+              <a href="https://wa.me/523124346300" target="_blank" class="appointment-button">
+                <i class="fab fa-whatsapp"></i>
+                <span data-i18n="findus.appointment">Book an appointment</span>
+              </a>
+            </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
- <section id="footer">
-  <div class="footer-inner">
+  <section id="footer">
+    <div class="footer-inner">
 
-    <div class="footer-brand">
-      <img src="./images/logo.svg" alt="Barber Shop Logo" class="logo">
-      <h2 class="barberShopTitle">Urban Barber</h2>
-      <p data-i18n="footer.premium">Premium Barber Shop</p>
-      <div class="footer-divider"></div>
+      <div class="footer-brand">
+        <img src="./images/logo.svg" alt="Barber Shop Logo" class="logo">
+        <h2 class="barberShopTitle">Urban Barber</h2>
+        <p data-i18n="footer.premium">Premium Barber Shop</p>
+        <div class="footer-divider"></div>
+      </div>
+
+      <div id="contact">
+        <a href="https://wa.me/523124346300" target="_blank" class="btn-social whatsapp">
+          <i class="fab fa-whatsapp"></i> 312-434-6300
+        </a>
+        <a href="https://www.instagram.com/urbanb_estudio" target="_blank" class="btn-social instagram">
+          <i class="fab fa-instagram"></i> @urbanb_estudio
+        </a>
+        <a href="https://www.facebook.com/BlackBarber" target="_blank" class="btn-social facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+
+        <label>
+          <i class="fas fa-map-marker-alt"></i>
+          Luis Arvizu Negrete #420, Villa de Álvarez, Col. México
+        </label>
+      </div>
+
     </div>
 
-    <div id="contact">
-      <a href="https://wa.me/523124346300" target="_blank" class="btn-social whatsapp">
-        <i class="fab fa-whatsapp"></i> 312-434-6300
-      </a>
-      <a href="https://www.instagram.com/urbanb_estudio" target="_blank" class="btn-social instagram">
-        <i class="fab fa-instagram"></i> @urbanb_estudio
-      </a>
-      <a href="https://www.facebook.com/BlackBarber" target="_blank" class="btn-social facebook">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-
+    <footer>
       <label>
-        <i class="fas fa-map-marker-alt"></i>
-        Luis Arvizu Negrete #420, Villa de Álvarez, Col. México
+        <span data-i18n="footer.rights" data-i18n-html="true">© 2025 Urban Barber — Todos los derechos reservados
+          &nbsp;</span>
+
+        <span data-i18n="footer.made_by">Hecho con ❤️ por</span> <a href="http://colxsoft.com" target="_blank"
+          rel="noopener noreferrer">Colxsoft</a>
       </label>
-    </div>
+    </footer>
+  </section>
 
-  </div>
-
-  <footer>
-    <label>
-      <span data-i18n="footer.rights" data-i18n-html="true">© 2025 Urban Barber — Todos los derechos reservados &nbsp;</span>
-      
-     <span data-i18n="footer.made_by">Hecho con ❤️ por</span> <a href="http://colxsoft.com" target="_blank" rel="noopener noreferrer">Colxsoft</a>
-    </label>
-  </footer>
-</section>
-
-<div id="layer-menu"></div>
+  <div id="layer-menu"></div>
 
   <script>
     window.addEventListener('scroll', () => {
@@ -606,11 +1215,11 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
     }
 
     const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.section-inner').forEach(el => {
-      el.style.opacity='0'; el.style.transform='translateY(30px)';
-      el.style.transition='opacity .7s ease, transform .7s ease';
+      el.style.opacity = '0'; el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity .7s ease, transform .7s ease';
       obs.observe(el);
     });
 
@@ -630,4 +1239,5 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
   </script>
   <script src="./scripts/i18n.js"></script>
 </body>
+
 </html>
