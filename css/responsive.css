@@ -6,19 +6,19 @@
 
 @media (max-width:1020px){
   .item-service{
-    margin: 0 10px 0; 
+    margin: 0 10px 0;
   }
 }
 
 @media (max-width:960px){
   .item-service{
-    margin: 0 5px 0px; 
+    margin: 0 5px 0px;
   }
 }
 
 @media (max-width:930px){
   .item-service{
-    margin: 0 10px 20px; 
+    margin: 0 10px 20px;
   }
 }
 
@@ -29,24 +29,16 @@
   .barberShopTitle{
     font-size: 140px;
   }
-  #footer .barberShopTitle{ 
-    font-size: 95px;
-  }
   .BtnContacUs{
     font-size: 20px;
     width: 200px;
     height: 60px;
   }
-  #footer #contact,
   .item-schedule,
   .item-service li,
   #welcome main p{
     font-size: 18px;
   }
-  #footer #contact label i{
-    font-size: 30px;
-  }
-  
   .subTitle2{
     font-size: 52px;
   }
@@ -54,9 +46,10 @@
     padding-top: 20px;
   }
 }
+
 @media (max-width:800px) {
 
-  /* Section - Header  */
+  /* Section - Header */
   #closeMenu,
   #openMenu{
     display: block;
@@ -84,7 +77,8 @@
   .item-menu.active{
     color: #000;
   }
-  /* Section - Welcome  */
+
+  /* Section - Welcome */
   #welcome main > div{
     width: 85% !important;
   }
@@ -92,7 +86,7 @@
 
 @media (max-width:700px) {
   #welcome > section{
-    align-items:center;
+    align-items: center;
     flex-direction: column-reverse;
   }
   #welcome main{
@@ -121,74 +115,68 @@
     position: relative;
     top: 20px;
   }
-  #footer #contact{
-    margin-top: 30px;
-  }
-
-  #footer > main{
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 @media (max-width:600px) {
   .subTitle{
     font-size: 65px;
   }
-  #footer #contact, .item-schedule, .item-service li, #welcome main p{
+  .item-schedule,
+  .item-service li,
+  #welcome main p{
     font-size: 16px;
   }
   .item-service{
-  margin: 0 10px 40px;
+    margin: 0 10px 40px;
+  }
+
+  /* Footer */
+  #footer {
+    padding: 2.5rem 1.25rem 0;
+  }
+  #footer #contact .btn-social {
+    width: 100%;
+    justify-content: center;
   }
 }
 
 @media (max-width:535px){
   .BtnContacUs{
-    
-  font-size: 18px;
-  width: 150px;
-  height: 50px;
+    font-size: 18px;
+    width: 150px;
+    height: 50px;
   }
   #findUs #openingHours{
-   
     width: 80% !important;
     margin: 0;
   }
   #findUs{
     padding-top: 120px;
   }
-  #footer > main > aside{width: 100% !important;}
+
+  /* Footer */
   #footer > footer label{
-    font-size: 15px;
+    font-size: 0.72rem;
   }
 }
-@media (max-width:500px){
-    #footer #contact{
-    width: 100% !important;
-    text-align: center;
+
+@media (max-width:400px){
+  #title{
+    max-width: 200px;
   }
-  #footer #contact label.d-flex{
-    width: 60%;
-    margin: 0 auto;
-  }
-}
-@media(max-width:400px){
-  #title{max-width: 200px;}
   .barberShopTitle{
-    
-  font-size: 100px;
-  line-height: initial;
+    font-size: 100px;
+    line-height: initial;
   }
-  #welcome,#services,#feedback{
+  #welcome, #services, #feedback{
     padding-top: 90px;
   }
   #welcome main{
-  width: 80% !important;
+    width: 80% !important;
   }
   .subTitle{
-  font-size: 45px;
-  line-height: inherit;
+    font-size: 45px;
+    line-height: inherit;
     margin-bottom: 40px;
   }
   #findUs #openingHours{
@@ -197,37 +185,17 @@
   #findUs #map{
     width: 90% !important;
   }
-  #footer .barberShopTitle{
-    
-  font-size: 65px;
+
+  /* Footer */
+  #footer .footer-brand .barberShopTitle {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
   }
-  #footer #contact label.d-flex{
-    width: 70%;
-  }
-  
 }
 
 @media(max-width:340px){
-  .item-schedule{flex-direction: column;line-height: 35px;margin-bottom: 20px;}
-}
-
-@media (max-width:300px){
-  #footer #contact label.d-flex{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 91%;
+  .item-schedule{
+    flex-direction: column;
+    line-height: 35px;
+    margin-bottom: 20px;
   }
 }
-@media (max-width:278px){
-  #footer #contact label.d-flex{
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-
-
-
-
-
