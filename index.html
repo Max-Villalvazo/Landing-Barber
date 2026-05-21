@@ -60,6 +60,15 @@
   }
   .theme-toggle:hover { border-color: var(--accent); background: rgba(0,200,255,.1); }
 
+  .lang-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--bg2);
+    cursor: pointer; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center;
+    justify-content: center; transition: var(--transition); flex-shrink: 0;
+    color: var(--text);
+  }
+  .lang-toggle:hover { border-color: var(--accent); background: rgba(0,200,255,.1); }
+
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
   /* Navbar */
@@ -377,18 +386,18 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header id="header">
     <div class="img-logo">
       <img src="./images/UrbanWhite.png" alt="Barber Shop Logo" class="nav-logo-img">
     </div>
     <ul id="menu">
-      <li><a href="#home" class="item-menu active">Home</a></li>
-      <li><a href="#welcome" class="item-menu">About us</a></li>
-      <li><a href="#services" class="item-menu">Service</a></li>
-      <li><a href="#findUs" class="item-menu">Contact</a></li>
+      <li><a href="#home" class="item-menu active" data-i18n="nav.home">Home</a></li>
+      <li><a href="#welcome" class="item-menu" data-i18n="nav.about">About us</a></li>
+      <li><a href="#services" class="item-menu" data-i18n="nav.services">Service</a></li>
+      <li><a href="#findUs" class="item-menu" data-i18n="nav.contact">Contact</a></li>
     </ul>
-    <a href="#findUs" class="BtnContacUs">Contact US</a>
+    <a href="#findUs" class="BtnContacUs" data-i18n="nav.contact_us">Contact US</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Toggle language" title="Switch Language">ES</button>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
     <button class="hamburger-btn" id="openMenu" aria-label="Open menu">
       <span class="line"></span><span class="line"></span><span class="line"></span>
@@ -398,23 +407,23 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu">
     <button class="close-menu" id="closeMenu">✕</button>
-    <a href="#home" onclick="closeMobileMenu()">Home</a>
-    <a href="#welcome" onclick="closeMobileMenu()">About us</a>
-    <a href="#services" onclick="closeMobileMenu()">Service</a>
-    <a href="#findUs" onclick="closeMobileMenu()">Contact</a>
+    <a href="#home" onclick="closeMobileMenu()" data-i18n="nav.home">Home</a>
+    <a href="#welcome" onclick="closeMobileMenu()" data-i18n="nav.about">About us</a>
+    <a href="#services" onclick="closeMobileMenu()" data-i18n="nav.services">Service</a>
+    <a href="#findUs" onclick="closeMobileMenu()" data-i18n="nav.contact">Contact</a>
   </div>
 
   <!-- Home -->
   <section id="home">
     <div class="layer"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Serving since 2022</div>
-      <h1 class="barberShopTitle">Barber <span class="grad">Shop</span></h1>
-      <p class="hero-sub">Welcome to a space where precision, style, and personalized attention combine to help you look and feel your best.</p>
-      <a href="#findUs" class="BtnContacUs" style="font-size:1rem;padding:.9rem 2.2rem;border-radius:14px;">Contact US</a>
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Serving since 2022</div>
+      <h1 class="barberShopTitle" data-i18n="hero.title" data-i18n-html="true">Barber <span class="grad">Shop</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Welcome to a space where precision, style, and personalized attention combine to help you look and feel your best.</p>
+      <a href="#findUs" class="BtnContacUs" style="font-size:1rem;padding:.9rem 2.2rem;border-radius:14px;" data-i18n="hero.contact_us">Contact US</a>
     </div>
     <div class="scroll-hint">
-      <span>Scroll</span>
+      <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -427,18 +436,18 @@
             <img src="./images/ub_withe.png" alt="Scissors" id="welcome-image">
         </div>
         <div class="welcome-text">
-          <span class="section-eyebrow">Our Story</span>
-          <h2 class="subTitle">Welcome to <span class="grad">Barber Shop</span></h2>
-          <p>We don't believe in generic haircuts.
+          <span class="section-eyebrow" data-i18n="welcome.eyebrow">Our Story</span>
+          <h2 class="subTitle" data-i18n="welcome.title" data-i18n-html="true">Welcome to <span class="grad">Barber Shop</span></h2>
+          <p data-i18n="welcome.p" data-i18n-html="true">We don't believe in generic haircuts.
 Each person has a unique essence, and our job is to help you project it authentically.
 
 We're a barbershop focused on details, facial structure, and personal image. We strive to ensure each client leaves with a style that truly connects with their personality, their face, and their lifestyle.
 Here, the service is direct, professional, and natural. No exaggeration. Just good work, good vibes, and noticeable results.</p>
           <div class="quote-block">
-            <p>“You didn’t come into this world to be just another face in the crowd, but to express something unique.”</p>
-            <cite>-Paramahansa Yogananda</cite>
+            <p data-i18n="welcome.quote">“You didn’t come into this world to be just another face in the crowd, but to express something unique.”</p>
+            <cite data-i18n="welcome.quote_cite">-Paramahansa Yogananda</cite>
           </div>
-          <a href="#services" class="btn-primary" style="margin-top:2rem;">View Services →</a>
+          <a href="#services" class="btn-primary" style="margin-top:2rem;" data-i18n="welcome.btn">View Services →</a>
         </div>
       </div>
     </div>
@@ -448,33 +457,33 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
   <section id="services">
     <div class="layer"></div>
     <div class="section-inner">
-      <span class="section-eyebrow">What we offer</span>
-      <h2 class="subTitle">Services</h2>
+      <span class="section-eyebrow" data-i18n="services.eyebrow">What we offer</span>
+      <h2 class="subTitle" data-i18n="services.title">Services</h2>
       <div class="services-grid">
         <div class="service-card">
-          <h3 class="subTitle2">✂ HairCut</h3>
+          <h3 class="subTitle2" data-i18n="services.haircut_title">✂ HairCut</h3>
           <ul>
-            <li><label>Haircut (all)</label><span>$200 MXN</span></li>
-            <li><label>Face Facial</label><span>$120 MXN</span></li>
-            <li><label>Barba</label><span>$120 MXN</span></li>
-            <li><label>Kids</label><span>$150 MXN</span></li>
+            <li><label data-i18n="services.haircut_all">Haircut (all)</label><span>$200 MXN</span></li>
+            <li><label data-i18n="services.haircut_facial">Face Facial</label><span>$120 MXN</span></li>
+            <li><label data-i18n="services.haircut_beard">Barba</label><span>$120 MXN</span></li>
+            <li><label data-i18n="services.haircut_kids">Kids</label><span>$150 MXN</span></li>
           </ul>
         </div>
         <div class="service-card">
-          <h3 class="subTitle2">🧔 Combos</h3>
+          <h3 class="subTitle2" data-i18n="services.combos_title">🧔 Combos</h3>
           <ul>
-            <li><label>Haircut + Face facial </label><span>$300 MXN</span></li>
-            <li><label>Haircut + Beard Trim</label><span>$300 MXN</span></li>
-            <li><label>Haircut + Beard Trim + Face Facial</label><span>$350 MXN</span></li>
+            <li><label data-i18n="services.combo_1">Haircut + Face facial </label><span>$300 MXN</span></li>
+            <li><label data-i18n="services.combo_2">Haircut + Beard Trim</label><span>$300 MXN</span></li>
+            <li><label data-i18n="services.combo_3">Haircut + Beard Trim + Face Facial</label><span>$350 MXN</span></li>
           </ul>
         </div>
         <div class="service-card">
-          <h3 class="subTitle2 otherServices">✨ Other Services</h3>
+          <h3 class="subTitle2 otherServices" data-i18n="services.other_title">✨ Other Services</h3>
           <ul class="other-services">
-            <li>Decolorate hair</li>
-            <li>Decolorate beard</li>
-            <li>Face facial</li>
-            <li>Hair wash</li>
+            <li data-i18n="services.other_decolorate_hair">Decolorate hair</li>
+            <li data-i18n="services.other_decolorate_beard">Decolorate beard</li>
+            <li data-i18n="services.other_facial">Face facial</li>
+            <li data-i18n="services.other_wash">Hair wash</li>
           </ul>
         </div>
       </div>
@@ -485,27 +494,27 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
   <section id="feedback">
     <div class="section-inner">
       <div style="text-align:center;margin-bottom:1rem;">
-        <span class="section-eyebrow">Testimonials</span>
+        <span class="section-eyebrow" data-i18n="feedback.eyebrow">Testimonials</span>
       </div>
-      <h2 class="subTitle" style="text-align:center;">What they said about <span class="grad">us</span></h2>
+      <h2 class="subTitle" style="text-align:center;" data-i18n="feedback.title" data-i18n-html="true">What they said about <span class="grad">us</span></h2>
       <div class="feedback-grid">
         <div class="item-feedback">
           <div class="stars">★★★★★</div>
           <div class="feedback-icon">✂</div>
-          <p>"Good attention, excellent service"</p>
+          <p data-i18n="feedback.review_1">"Good attention"</p>
           <footer><p>— Saúl Ruiz</p></footer>
         </div>
         <div class="item-feedback">
           <div class="stars">★★★★★</div>
           <div class="feedback-icon">✂</div>
-          <p>"Good attention, excellent service"</p>
-          <footer><p>— Saúl Ruiz</p></footer>
+          <p data-i18n="feedback.review_2">"I really liked the personalization of the services"</p>
+          <footer><p>— Braulio Urzua</p></footer>
         </div>
         <div class="item-feedback">
           <div class="stars">★★★★★</div>
           <div class="feedback-icon">✂</div>
-          <p>"Good attention, excellent service"</p>
-          <footer><p>— Saúl Ruiz</p></footer>
+          <p data-i18n="feedback.review_3">"I loved the follow-up she gives with each cut."</p>
+          <footer><p>— Angel Corona</p></footer>
         </div>
       </div>
     </div>
@@ -516,26 +525,26 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
     <div class="section-inner">
       <div class="findus-grid">
         <div id="map">
-          <span class="section-eyebrow">Location</span>
-          <h2 class="subTitle">Find us <span class="grad">in</span></h2>
+          <span class="section-eyebrow" data-i18n="findus.eyebrow">Location</span>
+          <h2 class="subTitle" data-i18n="findus.title" data-i18n-html="true">Find us <span class="grad">in</span></h2>
           <iframe   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1854.557206119906!2d-103.74349969445218!3d19.2897024274851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842545c8523ec3c9%3A0x8f787692e88e5bc0!2sUrban%20barber!5e0!3m2!1ses!2sus!4v1779157142167!5m2!1ses!2sus"
           width="600" height="450" style="border:0;" allowfullscreen="
           "loading="lazy" referrerpolicy="no-referrer-when-downgrade""></iframe> 
           
         </div>
         <div id="openingHours">
-          <h3 class="subTitle">Opening <span class="grad">Hours</span></h3>
-          <div class="item-schedule"><label>Monday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label>Tuesday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label>Wednesday</label><p2>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label>Thursday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label>Friday</label><p>3:00 p.m – 9:00 p.m</p></div>
-          <div class="item-schedule"><label>Saturday</label><p>3:00 p.m – 9:00 p.m</p></div>
+          <h3 class="subTitle" data-i18n="findus.hours_title" data-i18n-html="true">Opening <span class="grad">Hours</span></h3>
+          <div class="item-schedule"><label data-i18n="findus.day_monday">Monday</label><p>3:00 p.m – 9:00 p.m</p></div>
+          <div class="item-schedule"><label data-i18n="findus.day_tuesday">Tuesday</label><p>3:00 p.m – 9:00 p.m</p></div>
+          <div class="item-schedule"><label data-i18n="findus.day_wednesday">Wednesday</label><p>3:00 p.m – 9:00 p.m</p></div>
+          <div class="item-schedule"><label data-i18n="findus.day_thursday">Thursday</label><p>3:00 p.m – 9:00 p.m</p></div>
+          <div class="item-schedule"><label data-i18n="findus.day_friday">Friday</label><p>3:00 p.m – 9:00 p.m</p></div>
+          <div class="item-schedule"><label data-i18n="findus.day_saturday">Saturday</label><p>3:00 p.m – 9:00 p.m</p></div>
           <br>
           <div class="appointment-wrapper">
             <a href="https://wa.me/523124346300" target="_blank" class="appointment-button">
               <i class="fab fa-whatsapp"></i>
-              <span>Book an appointment</span>
+              <span data-i18n="findus.appointment">Book an appointment</span>
             </a>  
           </div>
         </div>
@@ -550,7 +559,7 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
     <div class="footer-brand">
       <img src="./images/logo.svg" alt="Barber Shop Logo" class="logo">
       <h2 class="barberShopTitle">Urban Barber</h2>
-      <p>Premium Barber Shop</p>
+      <p data-i18n="footer.premium">Premium Barber Shop</p>
       <div class="footer-divider"></div>
     </div>
 
@@ -575,9 +584,9 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
 
   <footer>
     <label>
-      © 2025 Urban Barber — Todos los derechos reservados &nbsp;
+      <span data-i18n="footer.rights" data-i18n-html="true">© 2025 Urban Barber — Todos los derechos reservados &nbsp;</span>
       
-     Hecho con ❤️ por <a href="http://colxsoft.com" target="_blank" rel="noopener noreferrer">Colxsoft</a>
+     <span data-i18n="footer.made_by">Hecho con ❤️ por</span> <a href="http://colxsoft.com" target="_blank" rel="noopener noreferrer">Colxsoft</a>
     </label>
   </footer>
 </section>
@@ -619,5 +628,6 @@ Here, the service is direct, professional, and natural. No exaggeration. Just go
       themeBtn.textContent = t === 'light' ? '🌙' : '☀️';
     }
   </script>
+  <script src="./scripts/i18n.js"></script>
 </body>
 </html>
