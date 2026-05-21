@@ -22,7 +22,12 @@ html, body {
 
 .layer {
   top: 0;
-  background: rgba(0, 0, 0, 0.35) !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,8,8, 0.75) 0%,
+    rgba(8,8,8, 0.60) 50%,
+    rgba(8,8,8, 0.85) 100%
+  );
 }
 
 .text-rigth {
@@ -130,13 +135,14 @@ html, body {
   transition: all .2s ease-out;
 }
 
-#layer-menu{
+#layer-menu {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  z-index: 5; 
+  z-index: 5;
 }
-/* Section - Home  */
+
+/* Section - Home */
 
 #home {
   padding-bottom: 30px;
@@ -161,7 +167,7 @@ html, body {
 
 /* Section - Welcome */
 
-#welcome aside{
+#welcome aside {
   width: 35% !important;
 }
 
@@ -198,7 +204,7 @@ html, body {
   margin-bottom: 15px;
 }
 
-/* Section - Feedback  */
+/* Section - Feedback */
 
 .item-feedback {
   border: 3px solid #74492E;
@@ -270,53 +276,189 @@ html, body {
   font-family: Questrial;
   color: #FFF;
   font-size: 25px;
-  line-height: 55px;
+  line-height: 100px;
 }
 
-/* Section - Footer */
-
-#footer .logo {
-  width: 160px;
-  height: 200px;
+.appointment-wrapper {
+  text-align: center;
+  margin-top: 30px;
 }
 
-#footer .barberShopTitle {
-  font-size: 119px;
-  line-height: 80px;
+.appointment-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1rem 1.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 16px 35px rgba(37, 211, 102, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
+
+.appointment-button i {
+  font-size: 1.3rem;
+}
+
+.appointment-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(37, 211, 102, 0.45);
+}
+
+.Appoinment {
+  color: #FFBE13;
+  font-size: 22px;
+  line-height: 70px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+/* ── FOOTER ─────────────────────────────────────────── */
 
 #footer {
-  padding-top: 100px;
-  background-color: #000;
-  color: #FFF;
+  background: #0a0a0a;
+  border-top: 1px solid rgba(0, 255, 136, 0.12);
+  padding: 3.5rem 2rem 0;
+  color: #f5f0e8;
+  font-family: 'Inter', sans-serif;
+}
+
+#footer .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#footer .footer-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#footer .footer-brand .logo {
+  width: 90px;
+  height: auto;
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+}
+
+#footer .footer-brand .barberShopTitle {
+  font-family: Dorsa;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #00ff88;
+  margin-bottom: 0.25rem;
+}
+
+#footer .footer-brand p {
+  font-size: 0.78rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+#footer .footer-divider {
+  width: 40px;
+  height: 2px;
+  background: #00ff88;
+  opacity: 0.5;
+  margin: 1.25rem auto 0;
 }
 
 #footer #contact {
-  font-size: 22px;
-  line-height: 47px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+#footer #contact .btn-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #1a1a1a;
+  background: #111;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+#footer #contact .btn-social:hover {
+  border-color: #00ff88;
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.06);
+}
+
+#footer #contact .btn-social.whatsapp:hover {
+  border-color: #25d366;
+  color: #25d366;
+  background: rgba(37, 211, 102, 0.06);
+}
+
+#footer #contact .btn-social.instagram:hover {
+  border-color: #e1306c;
+  color: #e1306c;
+  background: rgba(225, 48, 108, 0.06);
+}
+
+#footer #contact .btn-social.facebook:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+  background: rgba(24, 119, 242, 0.06);
 }
 
 #footer #contact label {
-  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  justify-content: center;
+  font-size: 0.82rem;
+  color: #444;
+  margin-top: 0.5rem;
 }
 
 #footer #contact label i {
-  font-size: 40px;
-  margin-right: 15px;
+  font-size: 0.85rem;
+  color: #00ff88;
+  opacity: 0.7;
 }
 
-#footer>footer {
-  padding: 30px 0;
-  margin-top: 50px;
-}
-
-#footer>footer label {
+#footer > footer {
+  border-top: 1px solid #1a1a1a;
+  padding: 1.25rem 0;
+  margin-top: 0;
   text-align: center;
-  width: 100%;
-  display: block;
-  font-size: 19px;
 }
 
-#footer>footer a {
-  color: #FFBE13;
+#footer > footer label {
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
+  color: #444;
+}
+
+#footer > footer a {
+  color: #00ff88;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#footer > footer a:hover {
+  opacity: 1;
 }
