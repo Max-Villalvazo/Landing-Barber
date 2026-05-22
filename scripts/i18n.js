@@ -9,14 +9,14 @@ const translations = {
     },
     hero: {
       eyebrow: "Sirviendo desde 2022",
-      title: "Barber <span class=\"grad\">Shop</span>",
+      title: "Urban <span class=\"grad\">Barber</span>",
       sub: "Bienvenido a un espacio donde la precisión, el estilo y la atención personalizada se combinan para ayudarte a lucir y sentirte de la mejor manera.",
       contact_us: "Contáctanos",
       scroll: "Bajar"
     },
     welcome: {
       eyebrow: "Nuestra Historia",
-      title: "Bienvenido a <span class=\"grad\">Barber Shop</span>",
+      title: "Bienvenido a <span class=\"grad\">Urban Barber</span>",
       p: "No creemos en los cortes de cabello genéricos. Cada persona tiene una esencia única, y nuestro trabajo es ayudarte a proyectarla de manera auténtica.<br><br>Somos una barbería enfocada en los detalles, la estructura facial y la imagen personal. Nos esforzamos para que cada cliente se vaya con un estilo que realmente conecte con su personalidad, su rostro y su estilo de vida.<br>Aquí, el servicio es directo, profesional y natural. Sin exageraciones. Solo buen trabajo, buenas vibras y resultados notables.",
       quote: "“No viniste a este mundo para ser una cara más en la multitud, sino para expresar algo único.”",
       quote_cite: "-Paramahansa Yogananda",
@@ -75,14 +75,14 @@ const translations = {
     },
     hero: {
       eyebrow: "Serving since 2022",
-      title: "Barber <span class=\"grad\">Shop</span>",
+      title: "Urban <span class=\"grad\">Barber</span>",
       sub: "Welcome to a space where precision, style, and personalized attention combine to help you look and feel your best.",
       contact_us: "Contact US",
       scroll: "Scroll"
     },
     welcome: {
       eyebrow: "Our Story",
-      title: "Welcome to <span class=\"grad\">Barber Shop</span>",
+      title: "Welcome to <span class=\"grad\">Urban Barber</span>",
       p: "We don't believe in generic haircuts. Each person has a unique essence, and our job is to help you project it authentically.<br><br>We're a barbershop focused on details, facial structure, and personal image. We strive to ensure each client leaves with a style that truly connects with their personality, their face, and their lifestyle.<br>Here, the service is direct, professional, and natural. No exaggeration. Just good work, good vibes, and noticeable results.",
       quote: "“You didn’t come into this world to be just another face in the crowd, but to express something unique.”",
       quote_cite: "-Paramahansa Yogananda",
