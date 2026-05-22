@@ -176,13 +176,8 @@ function initLanguage() {
   if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
     currentLang = savedLang;
   } else {
-    // Autodetect browser language
-    const browserLang = navigator.language || navigator.userLanguage;
-    if (browserLang && browserLang.startsWith('en')) {
-      currentLang = 'en';
-    } else {
-      currentLang = 'es';
-    }
+    // Default to Spanish when there's no saved preference
+    currentLang = 'es';
     localStorage.setItem('bs-lang', currentLang);
   }
 
